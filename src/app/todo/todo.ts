@@ -13,12 +13,13 @@ import {FormsModule} from '@angular/forms';
 export class Todo {
   todos: ITodo[] = [];
   newTodoTitle: string = '';
+  nextId: number = 1;
 
   addTodo(title: string) {
 
     if(this.newTodoTitle != '') {
       const newTodo: ITodo = {
-          id: Date.now(),
+          id: this.nextId++,
           title,
           completed: false
       }
@@ -27,5 +28,12 @@ export class Todo {
     }
 
     this.newTodoTitle = '';
+  }
+
+  toggleCompleted(todoId: number) {
+    const todo = this.todos.find(t => t.id === todoId);
+    if (todo) {
+      todo.completed = !todo.completed;
+    }
   }
 }
