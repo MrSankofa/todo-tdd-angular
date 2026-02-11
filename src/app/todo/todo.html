@@ -1,0 +1,11 @@
+<p>todo works!</p>
+
+<input [(ngModel)]="newTodoTitle" type="text" name="newTodo" id="newTodo" data-testId="new-todo-input" placeholder="Enter new todo" />
+<button id="AddTodoBtn" (click)="addTodo(newTodoTitle)">Add Todo</button>
+
+
+<ul>
+  @for (  todo of todos; track todo.id) {
+    <li data-testId="todo-item" class="todo-item">{{todo.title}}</li>
+  }
+</ul>
