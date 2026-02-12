@@ -19,7 +19,7 @@
              [id]="'Ckbx' + todo.id"
              (click)="toggleCompleted(todo.id)"
       >
-        {{todo.title}}
+        <span [class.completed]="todo.completed">{{todo.title}}</span>
     </li>
   }
 </ul>
